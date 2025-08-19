@@ -4,7 +4,7 @@ function MoviesDetails() {
     const { id } = useParams();
 
     return (
-        <h1>{ id }</h1>
+        <h1>{id}</h1>
     )
 }
 

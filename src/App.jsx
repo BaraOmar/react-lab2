@@ -4,10 +4,13 @@ import Home from "./Components/Home";
 import Movies from "./Components/Movies";
 import Footer from "./Components/Footer";
 import MoviesDetails from "./Components/MoviesDetails";
+import "./App.css";
 
 function App() {
   return (
     <Router>
+      <div className="app">
+
       <Navbar />
       <main>
         <Routes>
@@ -18,6 +21,7 @@ function App() {
         </Routes>
       </main>
       <Footer/>
+      </div>
     </Router>
   );
 }
