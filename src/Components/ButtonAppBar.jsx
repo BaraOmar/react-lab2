@@ -3,8 +3,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./Navbar.css";
 
 
 export default function ButtonAppBar() {
@@ -13,10 +13,11 @@ export default function ButtonAppBar() {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <Link to="/">Home</Link>
-                        <Link to="/movies">List of Movies</Link>
+                        <nav className="nav-links">
+                            <Link to="/">Home</Link>
+                            <Link to="/movies">List of Movies</Link>
+                        </nav> 
                     </Typography>
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </Box>

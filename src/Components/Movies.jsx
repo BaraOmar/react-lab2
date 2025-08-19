@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./Movies.css";
 
 
 function Movies() {
@@ -13,7 +13,7 @@ function Movies() {
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/movie/popular?api_key=8def0ea86d6031f9df932ad8968028cf")
             .then((response) => {
-                setData(response.data.results.slice(0, 10)); // get just the first 10 for display
+                setData(response.data.results);
                 setLoading(false);
             })
             .catch((error) => {
@@ -25,34 +25,40 @@ function Movies() {
 
     return (
         <>
-            <div style={{ textAlign: "center", marginTop: "40px" }}>
-                <h1>Movies</h1>
-                {loading ? (
+
+            {loading ? (
+                <dev className="page">
+                    <h1>Movies</h1>
                     <p>Loading...</p>
-                ) : (
-                    // <p>nothing</p>
-                    <ul style={{ listStyle: "none", padding: 0 , display: "flex"}}>
-                        {data.map((data, index) => (
-                            <li key={index}>
-                                <Link to={`/movies/${data.overview}`} style={{ margin: " 10px" }}>
-                                    <strong>{data.title}</strong>
-                                    <br />
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-                                        alt={data.title}
-                                        style={{ width: "200px", borderRadius: "10px" }}
-                                    />
-                                    <br />
+                </dev>
+            ) : (
+                <dev className="page">
+                    <h1>Movies</h1>
+
+                    <ul className="movies-grid">
+                        {data.map((data) => (
+                            <li key={data.id} className="movie-card">
+                                <Link to={`/movies/${data.id}`} className="card-link">
+                                    <div className="poster-wrap">
+
+                                        <img className="poster"
+                                            src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                                            alt={data.title}
+                                            style={{ width: "200px", borderRadius: "10px" }}
+                                        />
+                                    </div>
+                                    <div className="title">{data.title}</div>
+
                                 </Link>
 
                                 <br />
                             </li>
                         ))}
                     </ul>
+                </dev>
 
 
-                )}
-            </div>
+            )}
         </>
     )
 }
