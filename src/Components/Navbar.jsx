@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ButtonAppBar from "./ButtonAppBar";
 
 
-function Navbar (){
+function Navbar() {
 
-    return(
-       <nav style={{ marginBottom: "20px" }}>
-          <Link to="/" style={{ margin: "0 10px" }}>Home</Link>
-          <Link to="/movies" style={{ margin: "0 10px" }}>List of Movies</Link>
-        </nav>
+    return (
+    
+    <ButtonAppBar/>
+        
+    //    <nav style={{ marginBottom: "20px" }}>
+         
+    //     </nav>
     )
 }
 

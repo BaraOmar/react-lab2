@@ -1,0 +1,22 @@
+.home-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.home-container img {
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.home-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  color: #555;
+}
